@@ -1,0 +1,56 @@
+#hideMe{
+    visibility: hidden;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  #result, #income, #sumTotal{
+    font-size: large;
+    font-weight: bold;
+  }
+  .wrapper{
+    width: 350px;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .calc-button{
+    display: inline-flex;
+    height: 50px;
+    padding: 0;
+    background: #009578;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .calc-button:hover{
+    background: #008168;
+  }
+  .calc-button:active{
+    background: #006e58;
+  }
+  .button-text,
+  .button-icon{
+    display: inline-flex;
+    align-items: center;
+    padding: 0 24px;
+    color: white;
+    height: 100%;
+  }
+  .button-icon{
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.08);
+  }
