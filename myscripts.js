@@ -98,7 +98,7 @@ document.getElementById("my-button").addEventListener("click", calculate);
         }
 
         function dailyIncome(sum, coinPrice){
-                pvuConversion = sum / 665;
+                pvuConversion = sum / 731;
                return income = pvuConversion * coinPrice;
         }
         
