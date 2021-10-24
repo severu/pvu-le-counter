@@ -1,14 +1,14 @@
 //document.getElementById("my-button").addEventListener("click", calculate);
 const inputLe = document.querySelector('.inputLe');
 const inputHour = document.querySelector('.inputHour');
-var sum = 0;
-var entries = [];
-var baseUrl = "https://api.coinranking.com/v2/coin/wnOdC0P0b/price"
+let sum = 0;
+let entries = [];
+let baseUrl = "https://api.coinranking.com/v2/coin/wnOdC0P0b/price"
 //var baseUrl = "https://api.coinranking.com/v2/reference-currencies?types[]=coin&types[]=fiat"
-var proxyUrl = "https://cors-anywhere.herokuapp.com/"
-var apiKey = "coinranking8fab761404007b0a7ea973f2ed6d1a08b3ad2ab4cba09e79"
-var coinPrice = 0;
-var pvuConversion = 0;
+let proxyUrl = "https://cors-anywhere.herokuapp.com/"
+let apiKey = "coinranking8fab761404007b0a7ea973f2ed6d1a08b3ad2ab4cba09e79"
+let coinPrice = 0;
+let pvuConversion = 0;
 
 fetch(`${proxyUrl}${baseUrl}`, {
     method: "GET",
@@ -31,15 +31,13 @@ fetch(`${proxyUrl}${baseUrl}`, {
     console.log(response);
   });
 
-
-
 document.getElementById("my-button").addEventListener("click", calculate);
 
         function calculate() {
-          var leCount = document.getElementById("NumLe").value;
-          var hours = document.getElementById("hour").value;
-          var dividedHour = hours / 24;
-          var finalResult = leCount / dividedHour;  
+          let leCount = document.getElementById("NumLe").value;
+          let hours = document.getElementById("hour").value;
+          let dividedHour = hours / 24;
+          let finalResult = leCount / dividedHour;  
           
           //entries.push(finalResult)
                 try{
@@ -51,11 +49,7 @@ document.getElementById("my-button").addEventListener("click", calculate);
                     
                     document.getElementById("hideMe").style.visibility = "visible";  
 
-                    //convertToDay(hours);
-                    //document.getElementById("result").textContent = entries.join(",");
-                    //console.log(entries)
-                    //showResult = document.getElementById("result");
-                    //showResult.textContent += finalResult;
+                   
                 } catch(err){
                     alert(err);                   
                 }
@@ -67,12 +61,14 @@ document.getElementById("my-button").addEventListener("click", calculate);
             convertToDay(hours);
             sumOfResults(entries, finalResult);
             dailyIncome(sum, coinPrice);
-            //sumOfResults(entries);            
+                     
             document.getElementById("result").innerHTML += finalResult + '<br>';
             document.getElementById("hours").innerHTML = hours;
             document.getElementById("dayInformation").innerHTML = convertedDay;
             document.getElementById("sumTotal").innerHTML = sum;
             document.getElementById("income").innerHTML = '$' + income;
+
+            //clear both input 
             inputLe.value = '';
             inputHour.value = '';
         }
@@ -86,19 +82,17 @@ document.getElementById("my-button").addEventListener("click", calculate);
             //stores the results into an array then add them all up.
             sum = 0;
             entries.push(finalResult)
-            for( let i=0; i < entries.length; i++ ){
-                
-                 sum += entries[i];
-            }
-            //console.log(entries.length)
-            //dailyIncome(sum, coinPrice);
+                for( let i=0; i < entries.length; i++ ){
+                    
+                    sum += entries[i];
+                }
+            
             return sum;
-            
-            
+       
         }
 
         function dailyIncome(sum, coinPrice){
                 pvuConversion = sum / 731;
-               return income = pvuConversion * coinPrice;
+                return income = pvuConversion * coinPrice;
         }
         
